@@ -54,24 +54,24 @@ public class Player : Character
                 return;
             }
 
-            // jump
+
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 Jump();
             }
 
-            // change anim run
+
             if (Mathf.Abs(horizontal) > 0.1f)
             {
                 ChangeAnim("run");
             }
-            //attack
+
             if (Input.GetKeyDown(KeyCode.C) && isGrounded && !isAttack)
             {
                 Attack();
             }
 
-            //throw
+
             if (Input.GetKeyDown(KeyCode.V) && isGrounded && !isAttack)
             {
                 Throw();
@@ -79,20 +79,20 @@ public class Player : Character
 
         }
 
-        // check falling
+
         if (!isGrounded && rb.velocity.y < 0)
         {
             ChangeAnim("fall");
             isJumping = false;
         }
 
-        // Moving
+
         if (Mathf.Abs(horizontal) > 0.1f)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
             transform.rotation = Quaternion.Euler(new Vector3(0, horizontal > 0 ? 0 : 180, 0));
         }
-        // idle
+
         else if (isGrounded)
         {
             ChangeAnim("idle");
