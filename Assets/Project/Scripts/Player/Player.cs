@@ -121,7 +121,8 @@ public class Player : Character
     public override void OnDespawn()
     {
         base.OnDespawn();
-        OnInit();
+        //OnInit();
+        EnemyPoolManager.Instance.ReturnEnemy(this.gameObject);
     }
 
     protected override void OnDeath()
@@ -209,6 +210,7 @@ public class Player : Character
 
     public void SetMove(float horizontal)
     {
+        Debug.Log(horizontal);  // 1 or -1
         this.horizontal = horizontal;
     }
 }
