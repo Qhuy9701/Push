@@ -23,9 +23,7 @@ public class Character : MonoBehaviour
     {
         hp = 100;
         healthBar.OnInit(100, transform);
-        for(int i = 0 ; i < 3; i++){
-            
-        }
+       
     }
 
     public virtual void OnDespawn()
